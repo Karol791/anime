@@ -1,0 +1,1 @@
+<p class="list-group-item" *ngFor="let anime of animes, let i = index" [ngStyle]="{'background-color': i % 5 === 0 ? 'red' : 'tranparent'}">{{ anime.title }}</p>

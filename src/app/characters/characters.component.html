@@ -1,0 +1,2 @@
+
+    <p class="list-group-item" *ngFor="let character of characters, let i = index" [ngClass]="{'myClass': i % 5 === 0}"> {{ character.name }} </p>
