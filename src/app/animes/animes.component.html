@@ -1,1 +1,6 @@
-<p class="list-group-item" *ngFor="let anime of animes, let i = index" [ngStyle]="{'background-color': i % 5 === 0 ? 'red' : 'tranparent'}">{{ anime.title }}</p>
+<p class="list-group-item" *ngFor="let anime of animes, let i = index" appHighlight>{{ anime.title | shorten}}</p>
+<div class="alert alert-danger" *ngIf="error">
+    <h1>An error Occured!</h1>
+    <p>{{ error }}</p>
+    <button class="btn btn-danger" (click)="fetchData()">Try Again</button>
+</div>

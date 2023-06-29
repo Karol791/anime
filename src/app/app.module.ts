@@ -7,13 +7,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { CharactersComponent } from './characters/characters.component';
 import { NewsComponent } from './news/news.component';
 import { AnimesComponent } from './animes/animes.component';
+import { HighlightDirective } from './highlight.directive';
+import { ShortenPipe } from './shorten.pipe';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CharactersComponent,
     NewsComponent,
-    AnimesComponent
+    AnimesComponent,
+    HighlightDirective,
+    ShortenPipe,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

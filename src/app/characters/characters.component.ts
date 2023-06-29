@@ -9,12 +9,14 @@ import { DataStorageService } from '../data-storage.service';
 })
 export class CharactersComponent implements OnInit, OnDestroy{
   constructor(private dataStorageService: DataStorageService) {}
-  
+  error = null;
   subscription: Subscription;
   characters = [];
   ngOnInit(): void {
     this.subscription = this.dataStorageService.fetchCharacters().subscribe(response => {
       this.characters = response;
+    }, error => {
+      this.error = error.error.message;
     })
   }
   ngOnDestroy(): void {

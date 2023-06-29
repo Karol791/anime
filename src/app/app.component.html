@@ -1,17 +1,20 @@
 <nav class="navbar navbar-default" style="background-color:firebrick;">
     <div class="container-fluid">
             <ul class="nav navbar-nav">
-                <li routerLinkActive="active"><a style="cursor: pointer;" routerLink="/animes">Anime List</a></li>
-                <li routerLinkActive="active"><a style="cursor: pointer;" routerLink="/characters">Character List</a></li>
-                <li routerLinkActive="active"><a style="cursor: pointer;" routerLink="/random">Random Anime & Character</a></li>
+                <li routerLinkActive="active"><a style="cursor: pointer;" routerLink="/animes" [queryParams]="{allowView: isLogin ? '1' : '0'}">Anime List</a></li>
+                <li routerLinkActive="active"><a style="cursor: pointer;" routerLink="/characters" [queryParams]="{allowView: isLogin ? '1' : '0'}">Character List</a></li>
+                <li routerLinkActive="active"><a style="cursor: pointer;" routerLink="/random" [queryParams]="{allowView: isLogin ? '1' : '0'}">Random Anime</a></li>
             </ul>
     </div>
 </nav>
-
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-<router-outlet></router-outlet>
+            <button class="btn btn-danger" (click)="isLogin = !isLogin">Login</button>
+            <h4 *ngIf="!allowView" style="color: white;">You do not have permission to view! Please Log in</h4>
+            <div *ngIf="allowView">
+                <router-outlet></router-outlet>
+            </div>
         </div>
     </div>
 </div>
