@@ -13,11 +13,11 @@ export class DataStorageService {
         return this.http.get('https://api.jikan.moe/v4/anime').pipe(
             map(  
               response => {
-                const chuj = []
+                const animes = []
                 for(let key in response){
-                  chuj.push(response[key]);
+                  animes.push(response[key]);
                 }
-                return chuj[1];
+                return animes[1];
               }
             )
           )

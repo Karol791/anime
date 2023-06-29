@@ -10,12 +10,14 @@ import { DataStorageService } from '../data-storage.service';
 export class NewsComponent implements OnInit, OnDestroy{
   constructor(private http: HttpClient, private dsService: DataStorageService) {}
   subscription: Subscription;
-  rdmAnime;
+  rdmAnime = [];
+  error = null;
 
   ngOnInit(): void {
     this.subscription = this.dsService.fetchRandomAnime().subscribe(response => {
       this.rdmAnime = response;
-      console.log(this.rdmAnime);
+    }, error => {
+      this.error = error.error.message;
     })
   }
   ngOnDestroy(): void {
